@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option go_package = "./protofile"; 
+// import "google/protobuf/empty.proto";
+
+message JsonStruct {
+     bytes jsonData = 1;
+}
+
+// message Person {
+//     uint32 id = 1;
+//     string fname =2;
+//     string city =3;
+//     uint32 phone =4;
+//     float height = 5;
+//     bool married =6;
+// }
+
+
+//all request and respnse type 'JsonStruct' to use.
+service Person {
+    rpc CreateData (JsonStruct) returns (JsonStruct);
+    rpc GetDataById (JsonStruct) returns (JsonStruct);
+    rpc GetAllDataByField (JsonStruct) returns (JsonStruct);
+    rpc DeleteData (JsonStruct) returns (JsonStruct);
+   
+}
